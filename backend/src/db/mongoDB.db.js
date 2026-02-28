@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const mongoDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/unsplash");
+    await mongoose.connect("mongodb+srv://moeeznadeem58_db_user:xpRlRiWNHSUQ1Bzc@unsplash.ev77qjb.mongodb.net/?appName=Unsplash");
     console.log("Database connected sucessfully...");
   } catch (error) {
     console.log("Mongo Db connection error");
