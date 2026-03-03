@@ -21,10 +21,14 @@ const Search = () => {
     }
   };
 
+  const toNavigate = (search) =>{
+     navigate(`/search?name=${search}`);
+           searchImages(search);
+  }
+
   const handleSearch = (e) => {
     if (e.key == "Enter" && search) {
-      navigate(`/search?name=${search}`);
-      searchImages(search);
+     toNavigate(search)
     }
   };
 
@@ -61,7 +65,7 @@ const Search = () => {
             />
             <span
               className="px-4 border-l h-full rounded-r-lg flex items-center border-(--primary-color) cursor-pointer"
-              onClick={() => searchImages(search)}
+              onClick={() => toNavigate(search)}
             >
               <img src="/Search.svg" alt="" />
             </span>
