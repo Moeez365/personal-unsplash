@@ -2,13 +2,14 @@ import express from "express";
 import { mongoDB } from "./db/mongoDB.db.js";
 import { router } from "./router.js";
 import { ApiError } from "./utils/errors.utils.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
+
 app.use(express.json());
 const PORT = process.env.PORT || 5000;
 app.use(router);
-
-mongoDB();
 
 app.use((error, req, res, next) => {
   if (error instanceof ApiError) {
@@ -27,6 +28,7 @@ app.use((error, req, res, next) => {
   });
 });
 
+mongoDB();
 app.listen(PORT, () => {
   console.log(`your app is running on port http://localhost:${PORT}`);
 });
