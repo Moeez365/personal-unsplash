@@ -66,22 +66,21 @@ const addImageToCollection = async (req, res) => {
   try {
     const { collectionId } = req.params;
     const { author, uploadedAt, id, profileImage, urls } = req.body;
-    
+
     const findCollection = await Collection.findById(collectionId);
     if (!findCollection) {
       throw new ApiError(404, "collection not found");
-      return;
     }
 
-    // const findImage =
-    //   await Collection.findById(collectionId).populate("imageCollection");
+    const findImage =
+      await Collection.findById(collectionId).populate("imageCollection");
 
-    // const isFindImage = findImage.imageCollection.find((item) => item.id == id);
+    const isFindImage = findImage.imageCollection.find((item) => item.id == id);
 
-    // if (isFindImage) {
-    //   res.status(400).json(new ApiRespose(400, "Image already in collection"));
-    //   return;
-    // }
+    if (isFindImage) {
+      res.status(400).json(new ApiRespose(400, "Image already in collection"));
+      return;
+    }
 
     const saveImage = new Image({
       author,

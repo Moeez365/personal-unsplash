@@ -5,7 +5,7 @@ const collecitonSchema = new mongoose.Schema(
     name: {
       type: String,
       unique: true,
-      require: true,
+      required: true,
     },
     imageCollection: [{ type: mongoose.Types.ObjectId, ref: "Image" }],
   },
@@ -16,31 +16,30 @@ const collecitonSchema = new mongoose.Schema(
 
 const Collection = mongoose.model("Collection", collecitonSchema);
 
-const imagesSchema = mongoose.Schema({
+const imagesSchema = new mongoose.Schema({
   id: {
-    require: true,
-    type: String,
-    unique:true
+    required: true,
+    type: String
   },
   author: {
-    require: true,
+    required: true,
     type: String,
   },
   uploadedAt: {
-    require: true,
+    required: true,
     type: String,
   },
   profileImage: {
-    require: true,
+    required: true,
     type: String,
   },
   urls: {
     regular: {
-      require: true,
+      required: true,
       type: String,
     },
     small: {
-      require: true,
+      required: true,
       type: String,
     },
   },

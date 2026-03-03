@@ -81,13 +81,8 @@ const ImageDetail = () => {
     () => document.removeEventListener("mousedown");
   }, []);
 
-  const handleAddImage = async (id, collection) => {
+  const handleAddImage = async (id) => {
     try {
-      // const cl = collection.filter((item) => item.id == res.id);
-
-      // if (cl.length > 0) {
-      //   return;
-      // }
       const data = {
         id: res.id,
         author: res.user.name,
@@ -183,7 +178,7 @@ const ImageDetail = () => {
                               return (
                                 <div
                                   key={imageCollectionIndex}
-                                  className="flex gap-2 cursor-pointer bg-red-500"
+                                  className="flex gap-2 cursor-pointer"
                                   onClick={() =>
                                     handleImageDelete({
                                       imageId: item._id,
@@ -226,7 +221,6 @@ const ImageDetail = () => {
                       onClick={() =>
                         handleAddImage(
                           item._id,
-                          collections[index].imageCollection,
                         )
                       }
                       className="cursor-pointer p-2 px-4 flex items-center justify-between rounded hover:bg-(--primary-color)"

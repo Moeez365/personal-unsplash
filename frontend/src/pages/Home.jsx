@@ -20,7 +20,7 @@ const Home = () => {
           <p className="text-md text-wrap text-center">
             Search high-resolution images from Unsplash
           </p>
-          <div className="flex bg-(--white-color) items-center h-15 w-full md:w-xl border border-(--primary-color) rounded-lg shadow-xl shadow-[#00000017]">
+          <div className="flex bg-(--white-color) items-center h-15 w-full mx-4 md:w-xl border border-(--primary-color) rounded-lg shadow-xl shadow-[#00000017]">
             <input
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={handleClick}

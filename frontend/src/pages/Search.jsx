@@ -46,16 +46,27 @@ const Search = () => {
   }, []);
 
   return (
-    <div className="mt-15 -z-40">
-      <div className="h-18 bg-[url(/gradiend-bg.svg)] bg-no-repeat bg-cover flex flex-col items-center px-3 md:px-8">
-        <input
-          onKeyDown={handleSearch}
-          defaultValue={search.split("-").join(" ")}
-          onChange={(e) => setSearch(e.target.value.split(" ").join("-"))}
-          placeholder="Enter any keyword"
-          type="text"
-          className="shadow-xl shadow-[#00000038] mt-14 py-4 px-4 border rounded-lg w-full md:w-xl border-(--primary-color) outline-0 bg-(--white-color) mx-3 sm:mx-8"
-        />
+    <div className="mt-15 relative">
+      <div className="sticky top-15">
+        <div className="bg-[url(/gradiend-bg.svg)] bg-cover bg-center h-16" />
+        <div className="-mt-6 full flex justify-center">
+          <div className="flex bg-(--white-color) items-center justify-center h-15 w-full mx-4 md:w-xl border border-(--primary-color) rounded-lg shadow-xl shadow-[#00000017]">
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={handleSearch}
+              defaultValue={search}
+              type="text"
+              placeholder="Enter any keyword"
+              className="py-4 px-4 h-full w-full rounded-l-lg outline-0"
+            />
+            <span
+              className="px-4 border-l h-full rounded-r-lg flex items-center border-(--primary-color) cursor-pointer"
+              onClick={() => searchImages(search)}
+            >
+              <img src="/Search.svg" alt="" />
+            </span>
+          </div>
+        </div>
       </div>
       <ImageShow responseData={responseData} />
     </div>

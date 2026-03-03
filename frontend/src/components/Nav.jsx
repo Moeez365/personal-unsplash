@@ -4,7 +4,7 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 const Nav = () => {
   return (
     <>
-      <nav className="h-15 flex items-center bg-white justify-between px-5 sm:px-10 border-b border-b-(--primary-color) fixed top-0 w-full z-10">
+      <nav className="h-15 z-50 flex items-center bg-white justify-between px-5 sm:px-10 border-b border-b-(--primary-color) fixed top-0 w-full">
         <Link to={"/"}>
           <img src="/Logo.svg" className="w-30 sm:w-40" alt="" />
         </Link>
