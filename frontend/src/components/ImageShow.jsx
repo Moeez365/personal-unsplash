@@ -7,7 +7,7 @@ const ImageShow = ({ responseData }) => {
     navigate(`/image/${id}`);
   };
   return (
-    <div className="md:columns-2 lg:columns-3 xl:columns-4 mt-20 items-center">
+    <div className="md:columns-2 lg:columns-3 xl:columns-4 mt-10 items-center cursor-pointer">
       {responseData &&
         responseData.map((item, index) => (
           <img

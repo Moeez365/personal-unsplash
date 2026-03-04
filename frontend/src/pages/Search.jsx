@@ -12,6 +12,9 @@ const Search = () => {
 
   const searchImages = async (search) => {
     try {
+      if (page==1) {
+        setResponseData([]);
+      }
       const res = await axios.get(
         `https://api.unsplash.com/search/photos?client_id=${import.meta.env.VITE_CLIENT_ID}&page=${page}&query=${search.split("-").join(" ")}`,
       );
@@ -21,14 +24,16 @@ const Search = () => {
     }
   };
 
-  const toNavigate = (search) =>{
-     navigate(`/search?name=${search}`);
-           searchImages(search);
+  console.log(responseData);
+
+  const toNavigate = (search) => {
+    navigate(`/search?name=${search}`);
+    searchImages(search);
   }
 
   const handleSearch = (e) => {
     if (e.key == "Enter" && search) {
-     toNavigate(search)
+      toNavigate(search)
     }
   };
 
@@ -58,7 +63,7 @@ const Search = () => {
             <input
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={handleSearch}
-              defaultValue={search}
+              defaultValue={search.split('-').join(" ")}
               type="text"
               placeholder="Enter any keyword"
               className="py-4 px-4 h-full w-full rounded-l-lg outline-0"

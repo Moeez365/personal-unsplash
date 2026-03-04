@@ -83,7 +83,7 @@ const Collection = () => {
 
       {/*  */}
       {condition && (
-        <div className="flex items-center justify-center top-0 left-0 fixed w-screen h-screen bg-[#00000042] z-20">
+        <div className="flex items-center justify-center top-0 left-0 fixed w-screen h-screen bg-[#00000042] z-40">
           <div
             tabIndex={-1}
             ref={boxRef}
@@ -96,17 +96,17 @@ const Collection = () => {
               onChange={(e) => setCollectionName(e.target.value)}
               type="text"
               placeholder="Collection name"
-              className="px-5 py-2 border border-(--primary-color) w-full outline-0 shadow-xl shadow-[#00000038]"
+              className="px-5 py-3 border rounded border-(--primary-color) w-full outline-0 shodow-sm shadow-[#00000038]"
             />
             <div className="flex justify-center gap-4">
               <button
-                className="bg-(--primary-color) px-4 py-1 rounded"
+                className="bg-(--primary-color) px-8 py-2 rounded"
                 onClick={handleSaveCollection}
               >
                 Save
               </button>
               <button
-                className="bg-(--primary-color) px-4 py-1 rounded"
+                className="bg-(--primary-color) px-8 py-2 rounded"
                 onClick={() => setCondition(false)}
               >
                 Cancel

@@ -10,7 +10,6 @@ export const collectionSlice = createSlice({
   reducers: {
     addData: (state, action) => {
       if (Array.isArray(action.payload)) {
-        // state.collection.push(...action.payload)
         state.collection = action.payload;
       } else {
         state.collection.push(action.payload);

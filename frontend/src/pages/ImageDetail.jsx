@@ -71,7 +71,6 @@ const ImageDetail = () => {
     const handleMouse = (e) => {
       if (modelChildRef.current && !modelChildRef.current.contains(e.target)) {
         setIsOpen(false);
-        console.log("run");
         const body = document.querySelector("body");
         body.style.overflow = "auto";
       }
