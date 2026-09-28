@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": "https://personal-unsplash-production.up.railway.app/",
+      "/api": "/",
     },
   },
   plugins: [react(), tailwindcss()],
